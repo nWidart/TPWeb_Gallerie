@@ -1,0 +1,280 @@
+/* ------------------------------------------------------------------------------------------------------------------------
+ * Setting main colors
+ */
+@main-bg:#1a212b;
+@header-bg:#13181e;
+
+/* ------------------------------------------------------------------------------------------------------------------------
+ * Basic styling
+ */
+body {
+	background: @main-bg;
+	font-family: Geneva, Lucida Sans, Lucida Grande, Lucida Sans Unicode, Verdana, sans-serif;
+	font-size:14px;
+	line-height:1.6em;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------
+ * Font-face
+ * @font-family Cantarel
+ * @source http://www.fontsquirrel.com/fonts/Cantarell
+ */
+@font-face {
+    font-family: 'CantarellRegular';
+    src: url('../fonts/Cantarell-Regular-webfont.eot');
+    src: url('../fonts/Cantarell-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Cantarell-Regular-webfont.woff') format('woff'),
+         url('../fonts/Cantarell-Regular-webfont.ttf') format('truetype'),
+         url('../fonts/Cantarell-Regular-webfont.svg#CantarellRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'CantarellOblique';
+    src: url('../fonts/Cantarell-Oblique-webfont.eot');
+    src: url('../fonts/Cantarell-Oblique-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Cantarell-Oblique-webfont.woff') format('woff'),
+         url('../fonts/Cantarell-Oblique-webfont.ttf') format('truetype'),
+         url('../fonts/Cantarell-Oblique-webfont.svg#CantarellOblique') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'CantarellBold';
+    src: url('../fonts/Cantarell-Bold-webfont.eot');
+    src: url('../fonts/Cantarell-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Cantarell-Bold-webfont.woff') format('woff'),
+         url('../fonts/Cantarell-Bold-webfont.ttf') format('truetype'),
+         url('../fonts/Cantarell-Bold-webfont.svg#CantarellBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'CantarellBoldOblique';
+    src: url('../fonts/Cantarell-BoldOblique-webfont.eot');
+    src: url('../fonts/Cantarell-BoldOblique-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Cantarell-BoldOblique-webfont.woff') format('woff'),
+         url('../fonts/Cantarell-BoldOblique-webfont.ttf') format('truetype'),
+         url('../fonts/Cantarell-BoldOblique-webfont.svg#CantarellBoldOblique') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------
+ * Header
+ */
+header {
+	background: @header-bg;
+	height: 130px;
+	text-align:center;
+	border-bottom:1px solid darken(@header-bg,3%);
+	box-shadow: 0 1px 3px rgba(0,0,0,.2);
+
+	h1 {
+		font-family:'CantarellRegular';
+		font-size: 46px;
+		color: #fff;
+		margin: 20px 0;
+	}
+	h2 {
+		font-family:'CantarellRegular';
+		font-size: 11px;
+		color: #7a7f85;
+		padding-left: 25px;
+	}
+}
+header h1:before {
+	content: '';
+	background: url('../images/logo.png') 0px 0px no-repeat;
+	width: 22px;height: 41px;
+	position: relative;
+	display: inline-block;
+	padding-left: 10px;
+	top: 7px;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------
+ * Ribbon
+ */
+nav {
+	margin-top: 60px;
+
+	ul {
+		text-align:center;
+		display: inline-block;
+
+		li {
+			float: left;
+			color: #fff;
+			font-size: 14px;
+			line-height:20px;
+			padding: 10px 0;
+			margin-right:20px;
+
+			&:hover,&.active {
+				background: #52a315; /* Old browsers */
+				background: -webkit-linear-gradient(top, #52a315 0%, #365d1c 100%);
+				background: -moz-linear-gradient(top, #52a315 0%, #365d1c 100%);
+				background: -o-linear-gradient(top, #52a315 0%, #365d1c 100%);
+				background: -ms-linear-gradient(top, #52a315 0%, #365d1c 100%);
+				background: linear-gradient(top, #52a315 0%, #365d1c 100%); /* W3C */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#52a315', endColorstr='#365d1c',GradientType=0 ); /* IE6-9 */
+
+				-webkit-box-shadow: -1px 0px 0 #2B4916,1px 0px 0 #2B4916, inset 0 0 3px rgba(0,0,0,.3);
+				-moz-box-shadow: -1px 0px 0 #2B4916,1px 0px 0 #2B4916, inset 0 0 3px rgba(0,0,0,.3);
+				box-shadow: -1px 0px 0 #2B4916,1px 0px 0 #2B4916, inset 0 0 3px rgba(0,0,0,.3);
+			}
+
+			a {
+				text-decoration: none;
+				color: #fff;
+				font-weight:bold;
+				text-shadow: 1px 1px 0 fadeout(#2a6200, 35%);
+				padding: 0 10px;
+			}
+		}
+	}
+}
+
+.ribbon {
+	font-size: 16px !important;
+	/* This ribbon is based on a 16px font side and a 24px vertical rhythm. I've used em's to position each element for scalability. If you want to use a different font size you may have to play with the position of the ribbon elements */
+
+	width: 70%;
+	height: 20px;
+	position: relative;
+	background: #65cf19;
+	background: -webkit-gradient(linear, left top, left bottom, from(#65cf19), to(#449e00));
+	background: -webkit-linear-gradient(top, #65cf19, #449e00);
+	background: -moz-linear-gradient(top, #65cf19, #449e00);
+	background: -ms-linear-gradient(top, #65cf19, #449e00);
+	background: -o-linear-gradient(top, #65cf19, #449e00);
+	background-image: -ms-linear-gradient(top, #65cf19 0%, #449e00 100%);
+	color: #fff;
+	text-align: center;
+	//padding: 1em 2em; /* Adjust to suit */
+	height:2.5em;
+	margin: 2em auto 3em; /* Based on 24px vertical rhythm. 48px bottom margin - normally 24 but the ribbon 'graphics' take up 24px themselves so we double it. */
+}
+.ribbon:before, .ribbon:after {
+	content: "";
+	position: absolute;
+	display: block;
+	bottom: -1em;
+	border: 1.5em solid #449e00;
+	z-index: -1;
+	width: 2em;
+}
+.ribbon:before {
+	left: -4em;
+	border-right-width: 1.5em;
+	border-left-color: transparent;
+}
+.ribbon:after {
+	right: -4em;
+	border-left-width: 1.5em;
+	border-right-color: transparent;
+}
+.ribbon .ribbon-content:before, .ribbon .ribbon-content:after {
+	content: "";
+	position: absolute;
+	display: block;
+	border-style: solid;
+	border-color: #2a6200 transparent transparent transparent;
+	bottom: -1em;
+}
+.ribbon .ribbon-content:before {
+	left: 0;
+	border-width: 1em 0 0 1em;
+}
+.ribbon .ribbon-content:after {
+	right: 0;
+	border-width: 1em 1em 0 0;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------
+ * Projects
+ */
+
+.da-thumbs li {
+	float: left;
+	margin: 5px;
+	position: relative;
+	background: @header-bg;
+	padding: 8px;
+
+	-webkit-box-shadow: 0 0px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0 0px 3px rgba(0,0,0,0.5);
+	box-shadow: 0 0px 3px rgba(0,0,0,0.5);
+}
+
+
+.da-thumbs li a,
+.da-thumbs li a img {
+    display: block;
+    position: relative;
+}
+.da-thumbs li a {
+    overflow: hidden;
+}
+.da-thumbs li a div {
+    position: absolute;
+    background: fadeout(@main-bg,7%);
+    // background: @main-bg;
+    width: 100%;
+    height: 100%;
+}
+.da-thumbs li a div span {
+	color: #fff;
+	padding: 10px;
+}
+
+.da-thumbs li a div.da-animate {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+/* Initial state classes: */
+.da-slideFromTop {
+    left: 0px;
+    top: -100%;
+}
+.da-slideFromBottom {
+    left: 0px;
+    top: 100%;
+}
+.da-slideFromLeft {
+    top: 0px;
+    left: -100%;
+}
+.da-slideFromRight {
+    top: 0px;
+    left: 100%;
+}
+/* Final state classes: */
+.da-slideTop {
+    top: 0px;
+}
+.da-slideLeft {
+    left: 0px;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------
+ * Footer
+ */
+.footer p {
+	color: #7a7f85;
+	text-shadow: 0 -1px 0 rgba(0,0,0,.4);
+}
+
+
+
