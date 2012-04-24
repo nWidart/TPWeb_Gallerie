@@ -192,6 +192,7 @@
 	});
 </script>
 <script type="text/javascript">
+$(document).ready(function() {
 	// cache container
 	var $container = $('#da-thumbs');
 	// initialize isotope
@@ -234,16 +235,7 @@
 	  return false;
 	});
 
-
-
-	// $('.filters li a').click(function(){
-
-	// 	$('.filters li').each(function() {
-	// 		//console.log(this);
-	// 	});
-	// 	// $('.filters li').addClass('active');
-	// 	this.closest.addClass('test');
-	// });
+});
 </script>
 
 </body>
