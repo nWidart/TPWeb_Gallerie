@@ -195,6 +195,7 @@
 $(document).ready(function() {
 	// cache container
 	var $container = $('#da-thumbs');
+	$container.imagesLoaded( function(){
 	// initialize isotope
 	$container.isotope({
 		itemSelector: '.element',
@@ -233,6 +234,7 @@ $(document).ready(function() {
 			var $filteredData = $data.find('li[data-type=' + $filterType + ']');
 		}
 	  return false;
+	});
 	});
 
 });
