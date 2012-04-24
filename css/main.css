@@ -203,6 +203,8 @@ nav ul li a {
 .da-thumbs li a div span {
   color: #fff;
   padding: 10px;
+  font-size: 12px;
+  border-bottom: 2px solid #13181e;
 }
 .da-thumbs li a div.da-animate {
   -webkit-transition: all 0.3s ease;
@@ -241,6 +243,7 @@ nav ul li a {
 .footer p {
   color: #7a7f85;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+  font-size: 12px;
 }
 /**** Isotope filtering ****/
 .isotope-item {
