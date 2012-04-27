@@ -82,11 +82,14 @@ header {
 		font-size: 46px;
 		color: #fff;
 		margin: 20px 0;
+		text-shadow: -1px -1px 1px rgba(0,0,0,.2);
+		-webkit-animation: slideDown 3s;
 	}
 	h2 {
 		font-family:'CantarellRegular';
 		font-size: 11px;
 		color: #7a7f85;
+		text-shadow: 1px 1px 0px rgba(0,0,0,.9);
 		padding-left: 25px;
 	}
 }
@@ -131,13 +134,22 @@ nav {
 				-moz-box-shadow: -1px 0px 0 #2B4916,1px 0px 0 #2B4916, inset 0 0 3px rgba(0,0,0,.3);
 				box-shadow: -1px 0px 0 #2B4916,1px 0px 0 #2B4916, inset 0 0 3px rgba(0,0,0,.3);
 			}
+			&:hover a {
+				top: 2px;
+			}
 
 			a {
+				position: relative;
 				text-decoration: none;
 				color: #fff;
 				font-weight:bold;
-				text-shadow: 1px 1px 0 fadeout(#2a6200, 35%);
+				text-shadow: 1px 1px 0px fadeout(#2a6200, 3%);
 				padding: 0 10px;
+				-webkit-transition: all .10s ease-in-out;
+				-moz-transition: all .10s ease-in-out;
+				-ms-transition: all .10s ease-in-out;
+				-o-transition: all .10s ease-in-out;
+				transition: all .10s ease-in-out;
 			}
 		}
 	}
@@ -287,7 +299,6 @@ nav {
 		    -ms-transition: all .25s ease-in-out;
 		     -o-transition: all .25s ease-in-out;
 		        transition: all .25s ease-in-out;
-		
 		&:hover {
 			color: #fff;
 		}
@@ -305,3 +316,24 @@ nav {
   z-index: 1;
 }
 
+/* ------------------------------------------------------------------------------------------------------------------------
+ * Animation keyframes
+ */
+@-webkit-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@-webkit-animation slideDown {
+	0% {
+		margin-top: -10px;
+		color: red;
+	}
+	100% {
+		margin-top: 0px;
+		color: #fff;
+	}
+}
