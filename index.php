@@ -1,23 +1,4 @@
-<!doctype html>
-<html>
-<head>
-	<meta charset=utf-8>
-	<title>Gallerie</title>
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/960.css">
-	<link rel="stylesheet" href="css/main.css">
-	<link rel="stylesheet" href="css/jquery.lightbox-0.5.css" />
-
-</head>
-<body>
-<header>
-	<div class="container_12">
-		<div class="grid_12">
-			<h1>My portfolio</h1>
-			<h2>Logo, print and web design. Browse & enjoy.</h2>
-		</div>
-	</div><!-- end container -->
-</header>
+<?php include('includes/header.php'); ?>
 <nav>
 	<div class="container_12">
 		<div class="grid_12">
@@ -37,6 +18,15 @@
 <div class="container_12 projects">
 	<div class="grid_12">
 		<ul id="da-thumbs" class="da-thumbs">
+			<?php for ($i=1; $i <= 22; $i++) : ?>
+				<li class="element print">
+					<a href="images/projects/full_size/<?php echo $i; ?>.jpg">
+						<img src="images/projects/img<?php echo $i; ?>.jpg" alt="">
+						<div><span>Image <?php echo $i; ?></span></div>
+					</a>
+				</li>
+			<?php endfor;?>
+
 			<li class="element print">
 				<a href="images/projects/full_size/1.jpg">
 					<img src="images/projects/img1.jpg" alt="">
@@ -173,19 +163,4 @@
 		</ul>
 	</div>
 </div>
-<div class="container_12 footer">
-	<div class="grid_12">
-		<p>
-			© TP WEB - HEAJ 2012 | Created by <a href="http://www.nicolaswidart.com" target="_blank">Nicolas Widart</a> | <a href="https://github.com/nWidart/TPWeb_Gallerie/" target="_blank">Code on GitHub</a>
-		</p>
-	</div>
-</div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript" src="js/jquery.lightbox-0.5.min.js"></script>
-<script type="text/javascript" src="js/jquery.hoverdir.js"></script>
-<script type="text/javascript" src="https://raw.github.com/desandro/isotope/master/jquery.isotope.js"></script>
-<script type="text/javascript" src="js/scripts.js"></script>
-
-</body>
-</html>
+<?php include('includes/footer.php'); ?>

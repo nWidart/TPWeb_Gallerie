@@ -7,7 +7,7 @@ $(document).ready(function() {
 });
 
 /* ------------------------------------------------------------------------------------------------------------------------
- * Isotop init
+ * Isotope init
  */
 $(document).ready(function() {
 	// cache container
@@ -18,7 +18,7 @@ $(document).ready(function() {
 			itemSelector: '.element',
 			layoutMode : 'masonry',
 			masonry : {
-				columnWidth: $('.element').width() / 8,
+				columnWidth: $('.element').width() / 8
 			},
 			resizable : 'false',
 			animationEngine : 'jquery',
