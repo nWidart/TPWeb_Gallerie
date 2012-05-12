@@ -10,6 +10,7 @@ $chemin = "images/projects_filtres";
 
 if ( $handle = opendir($chemin) )
 {
+	$img= '';
 	$count = 0;
 	while ( ($filename = readdir($handle)) !== FALSE )
 	{
@@ -25,9 +26,10 @@ if ( $handle = opendir($chemin) )
 				$tab_details_nom = explode('-', $tab_ficher[0]);
 				$tab_filtres = explode ('_', $tab_details_nom[1]);
 				// var_dump($tab_filtres);
-				echo '<li>';
-				echo '<a href="'. $chemin_image .'"><img src="images/projects/img'. $count .'.jpg" alt="" /></a>';
-				echo '</li>';
+				$filters = implode(' ',$tab_filtres);
+				$img .= '<li class="element '. $filters .'">';
+				$img .= '<a href="'. $chemin_image .'"><img src="images/projects/img'. $count .'.jpg" alt="" /></a>';
+				$img .= '</li>';
 			}
 		}
 	}
@@ -69,9 +71,7 @@ function is_image($chemin_image)
 <div class="container_12 projects">
 	<div class="grid_12">
 		<ul id="da-thumbs" class="da-thumbs">
-			<?php foreach ($filename as $file) {
-				echo $file;
-			}
+			<?php echo $img;
 			?>
 		</ul>
 	</div>
