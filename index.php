@@ -1,4 +1,55 @@
 <?php include('includes/header.php'); ?>
+<?php
+$types_ok = array(
+	'image/jpeg',
+	'image/png',
+	'image/gif',
+);
+
+$chemin = "images/projects_filtres";
+
+if ( $handle = opendir($chemin) )
+{
+	$count = 0;
+	while ( ($filename = readdir($handle)) !== FALSE )
+	{
+		$count++;
+		// c'est une image?
+		$chemin_image = $chemin . '/' . $filename;
+		if ( !is_dir($chemin_image) )
+		{
+			if ( is_image($chemin_image) )
+			{
+				$tab_ficher = explode('.', $filename);
+				// Le nom du fichier [1]= extension
+				$tab_details_nom = explode('-', $tab_ficher[0]);
+				$tab_filtres = explode ('_', $tab_details_nom[1]);
+				// var_dump($tab_filtres);
+				echo '<li>';
+				echo '<a href="'. $chemin_image .'"><img src="images/projects/img'. $count .'.jpg" alt="" /></a>';
+				echo '</li>';
+			}
+		}
+	}
+}
+
+function is_image($chemin_image)
+{
+	global $types_ok;
+	if ( list($largeur, $hauteur, $type) = getimagesize($chemin_image) )
+	{
+		$type = image_type_to_mime_type($type);
+
+		if ( in_array($type, $types_ok) )
+		{
+			return TRUE;
+		}
+
+		return FALSE;
+	}
+}
+
+?>
 <nav>
 	<div class="container_12">
 		<div class="grid_12">
@@ -18,14 +69,10 @@
 <div class="container_12 projects">
 	<div class="grid_12">
 		<ul id="da-thumbs" class="da-thumbs">
-			<?php for ($i=1; $i <= 22; $i++) : ?>
-				<li class="element print">
-					<a href="images/projects/full_size/<?php echo $i; ?>.jpg">
-						<img src="images/projects/img<?php echo $i; ?>.jpg" alt="">
-						<div><span>Image <?php echo $i; ?></span></div>
-					</a>
-				</li>
-			<?php endfor;?>
+			<?php foreach ($filename as $file) {
+				echo $file;
+			}
+			?>
 		</ul>
 	</div>
 </div>
