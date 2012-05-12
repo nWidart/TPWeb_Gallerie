@@ -1,39 +1,44 @@
 <?php include('includes/header.php'); ?>
 <?php
 $types_ok = array(
-	'image/jpeg',
-	'image/png',
-	'image/gif',
-);
-
-$chemin = "images/projects_filtres";
-
-if ( $handle = opendir($chemin) )
+		'image/jpeg',
+		'image/png',
+		'image/gif',
+	);
+function create_gallery()
 {
-	$img= '';
-	$count = 0;
-	while ( ($filename = readdir($handle)) !== FALSE )
+	global $types_ok;
+
+	$chemin = "images/projects_filtres";
+
+	if ( $handle = opendir($chemin) )
 	{
-		$count++;
-		// c'est une image?
-		$chemin_image = $chemin . '/' . $filename;
-		if ( !is_dir($chemin_image) )
+		$img= '';
+		$count = 0;
+		while ( ($filename = readdir($handle)) !== FALSE )
 		{
-			if ( is_image($chemin_image) )
+			$count++;
+			// c'est une image?
+			$chemin_image = $chemin . '/' . $filename;
+			if ( !is_dir($chemin_image) )
 			{
-				$tab_ficher = explode('.', $filename);
-				// Le nom du fichier [1]= extension
-				$tab_details_nom = explode('-', $tab_ficher[0]);
-				$tab_filtres = explode ('_', $tab_details_nom[1]);
-				// var_dump($tab_filtres);
-				$filters = implode(' ',$tab_filtres);
-				$img .= '<li class="element '. $filters .'">';
-				$img .= '<a href="'. $chemin_image .'"><img src="images/projects/img'. $count .'.jpg" alt="" /></a>';
-				$img .= '</li>';
+				if ( is_image($chemin_image) )
+				{
+					$tab_ficher = explode('.', $filename);
+					// Le nom du fichier [1]= extension
+					$tab_details_nom = explode('-', $tab_ficher[0]);
+					$tab_filtres = explode ('_', $tab_details_nom[1]);
+					// var_dump($tab_filtres);
+					$filters = implode(' ',$tab_filtres);
+					echo '<li class="element '. $filters .'">';
+					echo '<a href="'. $chemin_image .'"><img src="images/projects/img'. $count .'.jpg" alt="" /></a>';
+					echo '</li>';
+				}
 			}
 		}
 	}
 }
+
 
 function is_image($chemin_image)
 {
@@ -71,8 +76,7 @@ function is_image($chemin_image)
 <div class="container_12 projects">
 	<div class="grid_12">
 		<ul id="da-thumbs" class="da-thumbs">
-			<?php echo $img;
-			?>
+			<?php create_gallery(); ?>
 		</ul>
 	</div>
 </div>
